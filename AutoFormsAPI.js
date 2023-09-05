@@ -57,8 +57,11 @@
         <input type="text" id="telefoneEmpresa" placeholder="Telefone" required>
 
         <h2>TIPO DE CURSO</h2>
-        <label for="tipoCurso">Tipo de Curso:</label>
-        <input type="text" id="tipoCurso" placeholder="Tipo de Curso" required>
+        <select id="tipoCurso" required>
+            <option value="Curso A">Curso A</option>
+            <option value="Curso B">Curso B</option>
+            <option value="Curso C">Curso C</option>
+        </select>
 
         <h2>PARTICIPANTES</h2>
         <div id="participantes">
@@ -197,9 +200,9 @@
 
             // Preencha os campos da nota fiscal com os dados da empresa
             document.getElementById('razaoSocial').value = data.nome;
-            document.getElementById('cnpjNF').value = data.cnpj;
+            document.getElementById('cnpjNF').value = document.getElementById('cnpjInput').value;
             document.getElementById('responsavelNF').value = '';
-            document.getElementById('telefoneNF').value = '';
+            document.getElementById('telefoneNF').value = data.telefone;
             document.getElementById('emailNF').value = data.email;
         }
     </script>
