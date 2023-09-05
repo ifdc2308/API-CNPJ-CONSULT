@@ -1,19 +1,34 @@
-document.getElementById('cnpjForm').addEventListener('submit', function (event) {
-    event.preventDefault();
+        function handleResponse(data) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
 
-    const cnpj = document.getElementById('cnpjInput').value;
-    const url = `https://receitaws.com.br/v1/cnpj/${cnpj}`;
-    
-    // Cria um elemento iframe
-    const iframe = document.createElement('iframe');
-    iframe.src = url;
-    iframe.width = "100%";
-    iframe.height = "400px";
+            // Crie uma tabela HTML
+            const table = document.createElement('table');
+            table.border = '1';
 
-    // Limpa o conteúdo da div 'result'
-    const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = '';
+            // Loop através dos campos do JSON e adiciona-os à tabela
+            for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                    const row = document.createElement('tr');
+                    const cell1 = document.createElement('td');
+                    const cell2 = document.createElement('td');
+                    cell1.textContent = key;
+                    cell2.textContent = data[key];
+                    row.appendChild(cell1);
+                    row.appendChild(cell2);
+                    table.appendChild(row);
+                }
+            }
 
-    // Adiciona o iframe à div 'result'
-    resultDiv.appendChild(iframe);
-});
+            // Adiciona a tabela à div 'result'
+            resultDiv.appendChild(table);
+        }
+
+        document.getElementById('cnpjForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const cnpj = document.getElementById('cnpjInput').value;
+            const script = document.createElement('script');
+            script.src = `https://receitaws.com.br/v1/cnpj/${cnpj}?callback=handleResponse`;
+            document.body.appendChild(script);
+        });
