@@ -3,6 +3,21 @@
 
 <head>
     <title>Consulta de CNPJ</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,5 +28,9 @@
         <button type="submit">Consultar</button>
     </form>
     <div id="result"></div>
+    <button id="downloadButton" style="display: none;">Download</button>
+
 </body>
+
 </html>
+
