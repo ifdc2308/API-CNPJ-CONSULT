@@ -1,8 +1,0 @@
-API REST DO FORMS
-https://dashboard.sheetmonkey.io/
-
-Simples formulário com integração via API para inserção de dados diretamente na planilha Google planilhas;
-
-styles com Tailwind.CSS
-
-https://docs.google.com/spreadsheets/d/1mpwMo9L1U-AU__v3_uf8dP950rXxKqT4M5-Sizzy6ys/edit#gid=0
